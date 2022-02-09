@@ -26,9 +26,7 @@ struct ConversionView: View {
                 List {
                     Section {
                         NavigationLink("From: ", destination: {SelectionView()})
-                            .foregroundColor(.white)
                         NavigationLink("To: ", destination: {SelectionView()})
-                            .foregroundColor(.white)
                         
                         TextField("IMPL", text: $implInput)
                             .cornerRadius(6)
@@ -36,9 +34,7 @@ struct ConversionView: View {
                             
                             .padding()
                     }
-                    .listRowBackground(Color.gray)
-                    
-                    
+                    .listRowBackground(Color(uiColor: .secondarySystemBackground))
                 }
                 .background(Color.clear.ignoresSafeArea())
                 .onAppear {
@@ -48,14 +44,12 @@ struct ConversionView: View {
                 
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)
-                        .foregroundColor(.gray)
+                        .foregroundColor(Color(uiColor: .secondarySystemBackground))
                     .frame(width: 300, height: 300)
                     
                     VStack {
                         Text("Your result is:")
-                            .foregroundColor(.white)
                         Text("IMPL \(result)")
-                            .foregroundColor(.white)
                     }
                 }
 
