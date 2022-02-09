@@ -30,7 +30,7 @@ struct ConversionView: View {
                 TextField("IMPL", text: $implInput)
                     .cornerRadius(6)
                     .overlay(VStack{Divider().offset(x: 0, y: 15)})
-                
+                    .keyboardType(.decimalPad)
                     .padding()
                     .listRowBackground(Color(uiColor: .secondarySystemBackground))
             }
