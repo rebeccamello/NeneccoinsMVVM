@@ -13,49 +13,47 @@ struct ConversionView: View {
     @State var result: Double = 0
     
     var body: some View {
-            VStack {
-                HStack {
-                    Spacer()
-                    Spacer()
-                    Button("Invert") {
-                        print("inverter")
-                    }
-                    .padding()
+        VStack {
+            HStack {
+                Spacer()
+                Spacer()
+                Button("Invert") {
+                    print("inverter")
                 }
-                
-                List {
-                    Section {
-                        NavigationLink("From: ", destination: {SelectionView()})
-                        NavigationLink("To: ", destination: {SelectionView()})
-                        
-                        TextField("IMPL", text: $implInput)
-                            .cornerRadius(6)
-                            .overlay(VStack{Divider().offset(x: 0, y: 15)})
-                            
-                            .padding()
-                    }
-                    .listRowBackground(Color(uiColor: .secondarySystemBackground))
-                }
-                .background(Color.clear.ignoresSafeArea())
-                .onAppear {
-                    // Set the default to clear
-                    UITableView.appearance().backgroundColor = .clear
-                }
-                
-                ZStack {
-                    RoundedRectangle(cornerRadius: 10)
-                        .foregroundColor(Color(uiColor: .secondarySystemBackground))
-                    .frame(width: 300, height: 300)
-                    
-                    VStack {
-                        Text("Your result is:")
-                        Text("IMPL \(result)")
-                    }
-                }
-
+                .padding()
             }
-            .navigationBarTitle("Neneccoins")
+            
+            List {
+                NavigationLink("From: ", destination: {SelectionView()}).listRowBackground(Color(uiColor: .secondarySystemBackground))
+                NavigationLink("To: ", destination: {SelectionView()}).listRowBackground(Color(uiColor: .secondarySystemBackground))
+                
+                TextField("IMPL", text: $implInput)
+                    .cornerRadius(6)
+                    .overlay(VStack{Divider().offset(x: 0, y: 15)})
+                
+                    .padding()
+                    .listRowBackground(Color(uiColor: .secondarySystemBackground))
+            }
+            .background(Color.clear.ignoresSafeArea())
+            .onAppear {
+                // Set the default to clear
+                UITableView.appearance().backgroundColor = .clear
+            }
+            
+            ZStack {
+                RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor(Color(uiColor: .secondarySystemBackground))
+                    .frame(width: 300, height: 300)
+                
+                VStack {
+                    Text("Your result is:")
+                    Text("IMPL \(result)")
+                }
+            }
+            
         }
+        .navigationBarTitle("Neneccoins")
+    }
 }
 
 struct ConversionView_Previews: PreviewProvider {
