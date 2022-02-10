@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ConversionView: View {
-    
+    // Terminar de implementar
     @State private var implInput: String = ""
     @State var result: Double = 0
     
@@ -17,28 +17,30 @@ struct ConversionView: View {
             HStack {
                 Spacer()
                 Spacer()
-                Button("Invert") {
-                    print("inverter")
-                }
-                .padding()
+                Button(action: {
+                    print("Implementar")
+                }, label: {
+                    Label("Invert", systemImage: "repeat")
+                })
             }
+            .padding(.trailing, 16)
             
-            List {
-                NavigationLink("From: ", destination: {SelectionView()}).listRowBackground(Color(uiColor: .secondarySystemBackground))
-                NavigationLink("To: ", destination: {SelectionView()}).listRowBackground(Color(uiColor: .secondarySystemBackground))
+            VStack {
+                NavigationLink(destination: {Color.red},
+                               label: {CoinCell(content: "From: Implementar")})
+                NavigationLink(destination: {Color.red},
+                               label: {CoinCell(content: "To: Implementar")})
                 
                 TextField("IMPL", text: $implInput)
                     .cornerRadius(6)
-                    .overlay(VStack{Divider().offset(x: 0, y: 15)})
                     .keyboardType(.decimalPad)
                     .padding()
-                    .listRowBackground(Color(uiColor: .secondarySystemBackground))
             }
-            .background(Color.clear.ignoresSafeArea())
-            .onAppear {
-                // Set the default to clear
-                UITableView.appearance().backgroundColor = .clear
-            }
+            .padding()
+            .background(Color(uiColor: .secondarySystemBackground))
+            .cornerRadius(10)
+            .padding(.horizontal, 16)
+            .padding(.bottom, 16)
             
             ZStack {
                 RoundedRectangle(cornerRadius: 10)

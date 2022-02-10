@@ -15,6 +15,7 @@
 		9D1DFC9927B3027C00105BC3 /* CoinRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1DFC9827B3027C00105BC3 /* CoinRepository.swift */; };
 		9D1DFC9C27B302AF00105BC3 /* ConversionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1DFC9B27B302AF00105BC3 /* ConversionView.swift */; };
 		9D1DFC9E27B302BC00105BC3 /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1DFC9D27B302BC00105BC3 /* SelectionView.swift */; };
+		9D5E710C27B56FB600771111 /* CoinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5E710B27B56FB600771111 /* CoinCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		9D1DFC9827B3027C00105BC3 /* CoinRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinRepository.swift; sourceTree = "<group>"; };
 		9D1DFC9B27B302AF00105BC3 /* ConversionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionView.swift; sourceTree = "<group>"; };
 		9D1DFC9D27B302BC00105BC3 /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
+		9D5E710B27B56FB600771111 /* CoinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 			children = (
 				9D1DFC9B27B302AF00105BC3 /* ConversionView.swift */,
 				9D1DFC9D27B302BC00105BC3 /* SelectionView.swift */,
+				9D5E710B27B56FB600771111 /* CoinCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 			files = (
 				9D1DFC9927B3027C00105BC3 /* CoinRepository.swift in Sources */,
 				9D1DFC9C27B302AF00105BC3 /* ConversionView.swift in Sources */,
+				9D5E710C27B56FB600771111 /* CoinCell.swift in Sources */,
 				9D1DFC9727B3025700105BC3 /* Coin.swift in Sources */,
 				9D1DFC8A27B301BB00105BC3 /* ContentView.swift in Sources */,
 				9D1DFC8827B301BB00105BC3 /* NeneccoinsMVVMApp.swift in Sources */,

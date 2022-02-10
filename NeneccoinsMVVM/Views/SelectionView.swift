@@ -8,30 +8,29 @@
 import SwiftUI
 
 struct SelectionView: View {
-    @Environment(\.dismiss) private var dismiss
-    let coins = ["Rebeccoins", "Chevisccoins", "Bahiaccoins", "Nathccoins", "Carolccoins"]
-//    @Binding var selectedCoin: String
+    var title: String
     
     var body: some View {
         List {
             ForEach(0..<5) { coin in
                 Button {
-//                    self.selectedCoin = self.coins[coin]
-                    self.dismiss()
+                    // implementar dismiss
                 } label: {
                     HStack {
-                        Text(coins[coin])
+                        Text("IMPLEMENTAR")
                             .foregroundColor(Color.primary)
                         Spacer()
                     }
                 }
-            }.listRowBackground(Color(uiColor: .secondarySystemBackground))
+            }
+                .listStyle(.insetGrouped)
         }
+        .navigationBarTitle(title)
     }
 }
 
 struct SelectionView_Previews: PreviewProvider {
     static var previews: some View {
-        SelectionView()
+        SelectionView(title: "To")
     }
 }
