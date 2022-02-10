@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    let initialState = CoinRepository.shared.fetchInitialData()
+    
     var body: some View {
         NavigationView {
-            ConversionView()
+            ConversionView(conversionViewModel: ConversionViewModel(fromCoin: initialState.fromCoin, toCoin: initialState.toCoin))
         }
     }
 }

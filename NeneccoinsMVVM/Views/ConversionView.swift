@@ -9,8 +9,7 @@ import SwiftUI
 
 struct ConversionView: View {
     // Terminar de implementar
-    @State private var implInput: String = ""
-    @State var result: Double = 0
+    @ObservedObject var conversionViewModel: ConversionViewModel
     
     var body: some View {
         VStack {
@@ -18,7 +17,7 @@ struct ConversionView: View {
                 Spacer()
                 Spacer()
                 Button(action: {
-                    print("Implementar")
+                    conversionViewModel.invert()
                 }, label: {
                     Label("Invert", systemImage: "repeat")
                 })
@@ -26,12 +25,23 @@ struct ConversionView: View {
             .padding(.trailing, 16)
             
             VStack {
-                NavigationLink(destination: {Color.red},
-                               label: {CoinCell(content: "From: Implementar")})
-                NavigationLink(destination: {Color.red},
-                               label: {CoinCell(content: "To: Implementar")})
                 
-                TextField("IMPL", text: $implInput)
+                NavigationLink {
+                    SelectionView(selectedCoin: $conversionViewModel.fromCoin, selectionViewModel: SelectionViewModel(), title: "From")
+                } label: {
+                    CoinCell(content: "From: \(conversionViewModel.fromCoin.name)")
+                }
+                
+                NavigationLink {
+                    SelectionView(selectedCoin: $conversionViewModel.toCoin, selectionViewModel: SelectionViewModel(), title: "To")
+                } label: {
+                    CoinCell(content: "To: \(conversionViewModel.toCoin.name)")
+                }
+                
+                TextField(conversionViewModel.fromCoin.abbreviation, text: $conversionViewModel.inputedValue)
+                    .onChange(of: conversionViewModel.inputedValue, perform: { newValue in
+                        conversionViewModel.calculate()
+                    })
                     .cornerRadius(6)
                     .keyboardType(.decimalPad)
                     .padding()
@@ -49,11 +59,14 @@ struct ConversionView: View {
                 
                 VStack {
                     Text("Your result is:")
-                    Text("IMPL \(result)")
+                    Text("\(conversionViewModel.toCoin.abbreviation) \(conversionViewModel.result)")
                 }
             }
             
         }
+        .onAppear(perform: {
+            conversionViewModel.calculate()
+        })
         .navigationBarTitle("Neneccoins")
     }
 }
@@ -61,7 +74,13 @@ struct ConversionView: View {
 struct ConversionView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ConversionView()
+            ConversionView(conversionViewModel:
+                            ConversionViewModel(fromCoin:
+                                                    Coin(name: "coin1",
+                                                         abbreviation: "LFK",
+                                                         conversionFactor: 10),
+                                                toCoin: Coin(name: "lasd",
+                                                             abbreviation: "COD", conversionFactor: 1)))
         }
     }
 }
