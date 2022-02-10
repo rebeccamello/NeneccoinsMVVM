@@ -12,7 +12,7 @@ struct SelectionView: View {
     
     var body: some View {
         List {
-            ForEach(0..<5) { coin in
+            ForEach(0..<6) { coin in
                 Button {
                     // implementar dismiss
                 } label: {
